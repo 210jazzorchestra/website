@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
-import photo1 from '@/assets/photo-1.png';
-import photo2 from '@/assets/photo-2.png';
+import bioPhoto from '@/lib/bio-photo';
 import sax from '@/assets/sax.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,7 +17,9 @@ import ContactForm from '@/components/contact-form';
 import InstagramFeed from '@/components/instagram-feed';
 import Link from 'next/link';
 import content from './content.json';
+import { carouselImages } from '@/lib/carousel-images';
 import BandsintownWidget from '@/components/bandsintown/bandsintown-widget';
+import ImageCarousel from '@/components/image-carousel';
 
 const SITE_MAIL_RECEIVER = process.env.SITE_MAIL_RECEIVER;
 const BANDSINTOWN_APPID = process.env.BANDSINTOWN_APPID;
@@ -98,18 +99,19 @@ export default function Home() {
         </div>
       </header>
       <main className='flex flex-col lg:gap-8 gap-4 max-h-full w-full'>
-        <Image
+        {/* <Image
           src={photo1}
           alt={content.title}
           width={1000}
           height={1000}
           className='object-cover w-full'
-        />
+        /> */}
+        <ImageCarousel images={carouselImages} />
 
         <div className='flex-col'>
           <div className='flex flex-row lg:gap-10 gap-4'>
             <Image
-              src={photo2}
+              src={bioPhoto}
               alt={content.title}
               width={250}
               height={250}
