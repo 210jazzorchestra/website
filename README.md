@@ -38,7 +38,7 @@ There are two spots for images on the site:
 - The image carousel at the top
 - The bio photo in the "About Us" section
 
-The easiest way to edit these is going to be going to [this page](https://github.dev/210jazzorchestra/website/blob/main/src/assets). Then drag and drop the photos into the carousel folder. If you want to edit the bio photo, just drag and drop the photo into the `bio-photo` folder. If you want to delete a photo, just right click the file and select `Delete Permanently`.
+The easiest way to edit these is via [this page](https://github.dev/210jazzorchestra/website/blob/main/src/assets). Then drag and drop the photos into the carousel folder. If you want to edit the bio photo, just drag and drop the photo into the `bio-photo` folder. If you want to delete a photo, just right click the file and select `Delete Permanently`.
 
 When you are done, to save your changes, go to the third icon down on the left side (the three dots connected by lines). Type in something like "uploaded images" in the message box, and then click the button that says "Commit & Push".
 
