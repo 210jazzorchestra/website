@@ -110,27 +110,29 @@ export default function BandsintownDates({
           return (
             <li
               key={event.id}
-              className='list-none mt-5 p-3 border border-border rounded bg-card flex justify-between items-center'
+              className='list-none mt-5 flex items-center justify-between gap-3 rounded-md border border-border/60 bg-accent/45 px-3 py-3 dark:border-border/50 dark:bg-foreground/[0.07]'
             >
-              <div className='text-left'>
+              <div className='min-w-0 text-left'>
                 <h3 className='text-lg font-bold text-foreground'>
                   {event.venue.name}
                 </h3>
-                <p className='text-foreground/90'>{event.venue.location}</p>
-                <p className='text-muted-foreground text-sm'>{timeDisplay}</p>
+                <p className='text-muted-foreground'>{event.venue.location}</p>
+                <p className='text-sm text-muted-foreground/90'>{timeDisplay}</p>
               </div>
               <a
                 href={event.url}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='pl-1'
+                className='shrink-0 pl-1'
               >
-                <Button size='lg'>Info</Button>
+                <Button size='lg' variant='ghost' className='border border-border/50 bg-muted/25 hover:bg-muted/45 dark:border-border/40 dark:bg-foreground/10 dark:hover:bg-foreground/15'>
+                  Info
+                </Button>
               </a>
             </li>
           );
         })
-      : <p className='text-muted-foreground text-2xl pt-4 pl-2 font-bold w-full'>
+      : <p className='w-full pl-2 pt-4 text-lg font-semibold text-muted-foreground'>
           No events found
         </p>
       }

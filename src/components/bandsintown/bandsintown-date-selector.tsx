@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from '../ui/button';
-import { cn } from '@/lib/utils';
 
 export default function BandsintownDateSelector({
   pastEvents,
@@ -14,22 +13,14 @@ export default function BandsintownDateSelector({
     <div className='flex gap-4'>
       <Button
         variant='ghost'
-        className={cn(
-          !pastEvents ?
-            'bg-muted text-foreground hover:bg-muted'
-          : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground',
-        )}
+        className={pastEvents ? '' : 'bg-stone-800'}
         onClick={() => setPastEvents(false)}
       >
         Upcoming
       </Button>
       <Button
         variant='ghost'
-        className={cn(
-          pastEvents ?
-            'bg-muted text-foreground hover:bg-muted'
-          : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground',
-        )}
+        className={pastEvents ? 'bg-stone-800' : ''}
         onClick={() => setPastEvents(true)}
       >
         Past
