@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import bioPhoto from '@/lib/bio-photo';
-import sax from '@/assets/sax.png';
+import logo from '@/lib/logo';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -107,13 +107,13 @@ export default function Home() {
         <div className='flex flex-col gap-2'>
           <div className='flex flex-row lg:justify-start justify-center gap-2 lg:mb-[-10px] mb-[-20px]'>
             <Image
-              src={sax}
-              alt='sax'
-              className='antialiased mr-[-20px] mt-[-15px] mb-2 lg:block md:block sm:block lg:w-12 md:w-10 sm:w-10 hidden'
+              src={logo}
+              alt={content.title}
+              className='antialiased mb-2 w-min lg:max-h-[55px] md:max-h-[45px]  max-h-[35px] object-contain mx-auto'
             />
             <h1
               className={cn(
-                'text-[32px] lg:text-7xl font-bold uppercase mt-[-3px] lg:mt-[-5px] antialiased',
+                'text-[28px] sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase mt-[-3px] lg:mt-[-5px] antialiased',
                 'text-primary',
                 josefin.className,
               )}
@@ -123,7 +123,7 @@ export default function Home() {
 
             <h1
               className={cn(
-                'text-[28px] lg:text-6xl font-bold uppercase antialiased',
+                'text-[24px] sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase antialiased',
                 'text-secondary',
                 josefin.className,
               )}
@@ -132,7 +132,7 @@ export default function Home() {
             </h1>
             <h1
               className={cn(
-                'text-[28px] lg:text-6xl font-bold uppercase antialiased',
+                'text-[24px] sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase antialiased',
                 josefin.className,
               )}
             >
