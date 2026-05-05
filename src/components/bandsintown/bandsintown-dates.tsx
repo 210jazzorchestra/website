@@ -119,7 +119,12 @@ export default function BandsintownDates({
                 <p className='text-foreground/90'>{event.venue.location}</p>
                 <p className='text-muted-foreground text-sm'>{timeDisplay}</p>
               </div>
-              <a href={event.url} target='_blank' rel='noopener noreferrer'>
+              <a
+                href={event.url}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='pl-1'
+              >
                 <Button size='lg'>Info</Button>
               </a>
             </li>
