@@ -59,6 +59,24 @@ interface Event {
   sold_out: boolean;
 }
 
+function venueGoogleMapsUrl(venue: Event['venue']): string {
+  const parts = [
+    venue.street_address,
+    venue.city,
+    venue.region,
+    venue.postal_code,
+    venue.country,
+  ]
+    .map((s) => s?.trim())
+    .filter(Boolean);
+  const query =
+    parts.length > 0 ?
+      parts.join(', ')
+    : venue.location?.trim() ?? '';
+
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
 export default function BandsintownDates({
   artist,
   pastEvents,
@@ -95,17 +113,35 @@ export default function BandsintownDates({
                 timeStyle: 'short',
               });
             }
-            const start = new Date(event.starts_at).toLocaleString(undefined, {
-              hour: 'numeric',
-              minute: 'numeric',
+            const startDate = new Date(event.starts_at);
+            const start = startDate.toLocaleString(undefined, {
+              dateStyle: 'medium',
+              timeStyle: 'short',
             });
             if (!event.ends_at) return start;
-            const end = new Date(event.ends_at).toLocaleString(undefined, {
-              hour: 'numeric',
-              minute: 'numeric',
-            });
+            const endDate = new Date(event.ends_at);
+            const sameCalendarDay =
+              startDate.getFullYear() === endDate.getFullYear() &&
+              startDate.getMonth() === endDate.getMonth() &&
+              startDate.getDate() === endDate.getDate();
+            const end = endDate.toLocaleString(
+              undefined,
+              sameCalendarDay ?
+                { hour: 'numeric', minute: 'numeric' }
+              : { dateStyle: 'medium', timeStyle: 'short' },
+            );
             return `${start} - ${end}`;
           })();
+
+          const v = event.venue;
+          const mapsUrl = venueGoogleMapsUrl(v);
+          const venueName = v.name?.trim();
+          const street = v.street_address?.trim() ?? '';
+          const cityState = [v.city, v.region].filter(Boolean).join(', ');
+          const venueLine =
+            street && cityState ?
+              `${street} | ${cityState}`
+            : street || cityState || v.location;
 
           return (
             <li
@@ -114,10 +150,23 @@ export default function BandsintownDates({
             >
               <div className='min-w-0 text-left'>
                 <h3 className='text-lg font-bold text-foreground'>
-                  {event.venue.name}
+                  {event.title}
                 </h3>
-                <p className='text-muted-foreground'>{event.venue.location}</p>
-                <p className='text-sm text-muted-foreground/90'>{timeDisplay}</p>
+                <p className='text-muted-foreground'>
+                  {venueName || venueLine ?
+                    <a
+                      href={mapsUrl}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='rounded-sm underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring'
+                    >
+                      {venueName || venueLine}
+                    </a>
+                  : 'Venue TBA'}
+                </p>
+                <p className='text-sm text-muted-foreground/90'>
+                  {timeDisplay}
+                </p>
               </div>
               <a
                 href={event.url}
@@ -125,7 +174,11 @@ export default function BandsintownDates({
                 rel='noopener noreferrer'
                 className='shrink-0 pl-1'
               >
-                <Button size='lg' variant='ghost' className='border border-border/50 bg-muted/25 hover:bg-muted/45 dark:border-border/40 dark:bg-foreground/10 dark:hover:bg-foreground/15'>
+                <Button
+                  size='lg'
+                  variant='ghost'
+                  className='border border-border/50 bg-muted/25 hover:bg-muted/45 dark:border-border/40 dark:bg-foreground/10 dark:hover:bg-foreground/15'
+                >
                   Info
                 </Button>
               </a>
