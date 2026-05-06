@@ -14,7 +14,7 @@ export default function SiteFooter({
   siteMailReceiver,
 }: SiteFooterProps) {
   return (
-    <footer className='row-start-3 flex gap-6 flex-wrap items-center justify-around mt-5 border-t border-border pt-5'>
+    <footer className='row-start-3 flex gap-6 flex-wrap items-center justify-center md:justify-between mt-5 border-t border-border pt-5 [&_svg]:text-foreground/80'>
       <SocialLinks
         instagramAccount={instagramAccount}
         youtubeAccount={youtubeAccount}
@@ -24,7 +24,9 @@ export default function SiteFooter({
         iconClassName='lg:w-8 lg:h-8 w-10 h-10'
       />
       <p className='text-xs text-muted-foreground w-full sm:w-auto text-center flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2'>
-        <span>All Rights Reserved. 210 Jazz Orchestra ©{new Date().getFullYear()}</span>
+        <span>
+          All Rights Reserved. 210 Jazz Orchestra ©{new Date().getFullYear()}
+        </span>
         <span className='hidden sm:block'>|</span>
         <span>
           Website by{' '}

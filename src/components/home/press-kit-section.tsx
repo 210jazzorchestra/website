@@ -7,7 +7,7 @@ export default function PressKitSection() {
       <hr className='w-full border-border my-4 lg:my-0' />
 
       <div className='flex lg:flex-row md:flex-row sm:flex-row flex-col justify-between gap-4 items-center'>
-        <h4 className='font-bold lg:text-3xl text-2xl text-primary uppercase lg:my-0 pb-2 lg:pb-0'>
+        <h4 className='font-bold text-3xl text-primary uppercase lg:my-0 pb-2 lg:pb-0'>
           Press Kit
         </h4>
         <div className='flex lg:flex-row md:flex-row sm:flex-row flex-col items-center lg:gap-10 gap-4'>
@@ -16,7 +16,7 @@ export default function PressKitSection() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <Button className='w-40' variant='outline'>
+            <Button className='w-60 sm:w-40' variant='outline' size='lg'>
               Stage Plots
             </Button>
           </Link>
@@ -25,7 +25,7 @@ export default function PressKitSection() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <Button className='w-40' variant='outline'>
+            <Button className='w-60 sm:w-40' variant='outline' size='lg'>
               Press Photos
             </Button>
           </Link>
