@@ -6,22 +6,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Dark palette is the default; light applies when OS prefers light (unless fixed in content.json) */
+/* Dark palette is default; light applies by system or fixed appearance. */
 @layer base {
-  :root {
+  :root,
+  html[data-appearance='dark'] {
     color-scheme: dark;
     --background: #121212;
     --foreground: #f5f5f4;
+    --foreground-rgb: 245 245 244;
     --card: #1a1a1c;
     --card-foreground: #f5f5f4;
     --popover: #1a1a1c;
     --popover-foreground: #f5f5f4;
     --primary: #fec76f;
     --primary-foreground: #19191c;
-    --secondary: #4a0a94;
+    --secondary: #d394ff;
     --secondary-foreground: #fafafa;
     --muted: #26262b;
     --muted-foreground: #a8a8b0;
+    --muted-foreground-rgb: 168 168 176;
     --accent: #26262b;
     --accent-foreground: #f5f5f4;
     --destructive: #dc2626;
@@ -42,16 +45,18 @@ body {
       color-scheme: light;
       --background: #f9f9f6;
       --foreground: #1b1c26;
+      --foreground-rgb: 27 28 38;
       --card: #ffffff;
       --card-foreground: #1b1c26;
       --popover: #ffffff;
       --popover-foreground: #1b1c26;
       --primary: #f09a0d;
       --primary-foreground: #19191c;
-      --secondary: #5811d1;
+      --secondary: #d394ff;
       --secondary-foreground: #ffffff;
       --muted: #f0efe9;
       --muted-foreground: #6b6e76;
+      --muted-foreground-rgb: 107 110 118;
       --accent: #ebe9e4;
       --accent-foreground: #1b1c26;
       --destructive: #ef4444;
@@ -67,21 +72,22 @@ body {
     }
   }
 
-  /* Fixed light (when followSystemTheme is false and defaultAppearance is "light") */
   html[data-appearance='light'] {
     color-scheme: light;
     --background: #f9f9f6;
     --foreground: #1b1c26;
+    --foreground-rgb: 27 28 38;
     --card: #ffffff;
     --card-foreground: #1b1c26;
     --popover: #ffffff;
     --popover-foreground: #1b1c26;
     --primary: #f09a0d;
     --primary-foreground: #19191c;
-    --secondary: #5811d1;
+    --secondary: #d394ff;
     --secondary-foreground: #ffffff;
     --muted: #f0efe9;
     --muted-foreground: #6b6e76;
+    --muted-foreground-rgb: 107 110 118;
     --accent: #ebe9e4;
     --accent-foreground: #1b1c26;
     --destructive: #ef4444;
@@ -96,34 +102,6 @@ body {
     --chart-5: #d9832b;
   }
 
-  /* Fixed dark (when followSystemTheme is false and defaultAppearance is not "light") */
-  html[data-appearance='dark'] {
-    color-scheme: dark;
-    --background: #121212;
-    --foreground: #f5f5f4;
-    --card: #1a1a1c;
-    --card-foreground: #f5f5f4;
-    --popover: #1a1a1c;
-    --popover-foreground: #f5f5f4;
-    --primary: #fec76f;
-    --primary-foreground: #19191c;
-    --secondary: #4a0a94;
-    --secondary-foreground: #fafafa;
-    --muted: #26262b;
-    --muted-foreground: #a8a8b0;
-    --accent: #26262b;
-    --accent-foreground: #f5f5f4;
-    --destructive: #dc2626;
-    --destructive-foreground: #fafafa;
-    --border: #333338;
-    --input: #333338;
-    --ring: #fec76f;
-    --chart-1: #2563eb;
-    --chart-2: #059669;
-    --chart-3: #d97706;
-    --chart-4: #a855f7;
-    --chart-5: #ec4899;
-  }
 }
 
 @layer base {

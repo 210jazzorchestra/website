@@ -12,7 +12,7 @@ export default {
     extend: {
       colors: {
         background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        foreground: 'rgb(var(--foreground-rgb) / <alpha-value>)',
         card: {
           DEFAULT: 'var(--card)',
           foreground: 'var(--card-foreground)',
@@ -31,7 +31,7 @@ export default {
         },
         muted: {
           DEFAULT: 'var(--muted)',
-          foreground: 'var(--muted-foreground)',
+          foreground: 'rgb(var(--muted-foreground-rgb) / <alpha-value>)',
         },
         accent: {
           DEFAULT: 'var(--accent)',

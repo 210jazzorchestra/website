@@ -12,13 +12,7 @@ const T = {
 const embedShadow =
   '0 0 0 1px var(--border), 0 4px 14px color-mix(in srgb, var(--foreground) 10%, transparent)';
 
-export default function InstagramFeed({
-  account,
-  accountTitle,
-}: {
-  account: string;
-  accountTitle: string;
-}) {
+export default function InstagramFeed({ account }: { account: string }) {
   return (
     <>
       <Script
@@ -28,7 +22,7 @@ export default function InstagramFeed({
       />
       <blockquote
         className='instagram-media'
-        data-instgrm-permalink={`https://www.instagram.com/${account}/?utm_source=ig_embed&amp;utm_campaign=loading`}
+        data-instgrm-permalink={`https://www.instagram.com/${account}/?theme=dark&utm_source=ig_embed&amp;utm_campaign=loading`}
         data-instgrm-version='14'
         style={{
           background: T.card,
@@ -44,7 +38,7 @@ export default function InstagramFeed({
       >
         <div style={{ padding: '16px' }}>
           <a
-            href={`https://www.instagram.com/${account}/?utm_source=ig_embed&amp;utm_campaign=loading`}
+            href={`https://www.instagram.com/${account}/?theme=dark&utm_source=ig_embed&amp;utm_campaign=loading`}
             style={{
               background: T.card,
               lineHeight: '0',
@@ -280,6 +274,7 @@ export default function InstagramFeed({
               whiteSpace: 'nowrap',
             }}
           >
+            @
             <a
               href={`https://www.instagram.com/${account}/?utm_source=ig_embed&amp;utm_campaign=loading`}
               style={{
@@ -289,27 +284,14 @@ export default function InstagramFeed({
                 fontStyle: 'normal',
                 fontWeight: 'normal',
                 lineHeight: '17px',
-              }}
-              target='_blank'
-            >
-              {accountTitle}
-            </a>
-            (@
-            <a
-              href={`https://www.instagram.com/${account}/?utm_source=ig_embed&amp;utm_campaign=loading`}
-              style={{
-                color: T.mutedFg,
-                fontFamily: 'inherit',
-                fontSize: '14px',
-                fontStyle: 'normal',
-                fontWeight: 'normal',
-                lineHeight: '17px',
+                marginLeft: '4px',
+                marginRight: '4px',
               }}
               target='_blank'
             >
               {account}
             </a>
-            ) • Instagram photos and videos
+            • Instagram photos and videos
           </p>
         </div>
       </blockquote>
