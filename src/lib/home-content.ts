@@ -17,7 +17,7 @@ const homeContentSchema = z
     announcementsTitle: z.string().optional(),
     announcements: z.array(announcementSchema).default([]),
     bio: z.string().min(1),
-    saxophones: z.string().optional(),
+    saxophones: z.string().min(1),
     trumpets: z.string().min(1),
     trombones: z.string().min(1),
     rhythm: z.string().min(1),
