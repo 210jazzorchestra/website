@@ -77,6 +77,9 @@ function venueGoogleMapsUrl(venue: Event['venue']): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
+const externalLinkClass =
+  'text-primary underline underline-offset-4 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm';
+
 export default function BandsintownDates({
   artist,
   pastEvents,
@@ -150,7 +153,16 @@ export default function BandsintownDates({
             >
               <div className='min-w-0 text-left'>
                 <h3 className='text-lg font-bold text-foreground'>
-                  {event.title}
+                  {event.url ?
+                    <a
+                      href={event.url}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className={externalLinkClass}
+                    >
+                      {event.title}
+                    </a>
+                  : event.title}
                 </h3>
                 <p className='text-muted-foreground'>
                   {venueName || venueLine ?
@@ -158,7 +170,7 @@ export default function BandsintownDates({
                       href={mapsUrl}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='rounded-sm underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring'
+                      className={externalLinkClass}
                     >
                       {venueName || venueLine}
                     </a>

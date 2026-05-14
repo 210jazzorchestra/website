@@ -44,6 +44,7 @@ export default function Home() {
             trumpets={content.trumpets}
             trombones={content.trombones}
             rhythm={content.rhythm}
+            vocals={content.vocals}
             bandsintownArtist={content.bandsintownArtist}
             bandsintownAppId={BANDSINTOWN_APPID || ''}
             youtubeVideo1={content.youtubeVideo1}
