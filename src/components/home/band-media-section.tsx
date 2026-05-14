@@ -7,7 +7,7 @@ type BandMediaProps = {
   trumpets: string;
   trombones: string;
   rhythm: string;
-  vocals: string;
+  vocals: string | undefined;
   bandsintownArtist: string;
   bandsintownAppId: string;
   youtubeVideo1: string;
